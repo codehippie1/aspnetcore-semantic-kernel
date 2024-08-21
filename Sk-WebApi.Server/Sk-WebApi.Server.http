@@ -1,0 +1,6 @@
+@Sk_WebApi.Server_HostAddress = http://localhost:5089
+
+GET {{Sk_WebApi.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
