@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Sk-WebApi.Server/obj
+/Sk-WebApi.Server/Sk-WebApi.Server.csproj.user
