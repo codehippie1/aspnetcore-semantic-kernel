@@ -33,29 +33,56 @@ public class WeatherForecastController : ControllerBase
         _chatCompletionService = _kernel.GetRequiredService<IChatCompletionService>();
     }
 
-    // https://localhost:5173/weatherforecast/average
-    [HttpGet("Average")]
-    public async Task<string> GetAverageTemp()
+    // https://localhost:5173/weatherforecast/ask
+    [HttpGet("Ask")]
+    public async Task<string> Ask(string input)
     {
-        string? input = "Calculate average temperature";
-
         ChatMessageContent chatResult =
             await _chatCompletionService.GetChatMessageContentAsync(input, openAIPromptExecutionSettings, _kernel);
 
         return chatResult.ToString();
     }
 
-    // https://localhost:5173/weatherforecast/sum
-    [HttpGet("Sum")]
-    public async Task<string> GetSumOfTemp()
-    {
-        string? input = "Calculate sum of temperatures";
 
-        ChatMessageContent chatResult =
-            await _chatCompletionService.GetChatMessageContentAsync(input, openAIPromptExecutionSettings, _kernel);
 
-        return chatResult.ToString();
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+    //// https://localhost:5173/weatherforecast/average
+    //[HttpGet("Average")]
+    //public async Task<string> GetAverageTemp()
+    //{
+    //    string? input = "Calculate average temperature";
+
+    //    ChatMessageContent chatResult =
+    //        await _chatCompletionService.GetChatMessageContentAsync(input, openAIPromptExecutionSettings, _kernel);
+
+    //    return chatResult.ToString();
+    //}
+
+    //// https://localhost:5173/weatherforecast/sum
+    //[HttpGet("Sum")]
+    //public async Task<string> GetSumOfTemp()
+    //{
+    //    string? input = "Calculate sum of temperatures";
+
+    //    ChatMessageContent chatResult =
+    //        await _chatCompletionService.GetChatMessageContentAsync(input, openAIPromptExecutionSettings, _kernel);
+
+    //    return chatResult.ToString();
+    //}
+
+
+
 
 
 

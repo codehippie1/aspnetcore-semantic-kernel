@@ -1,5 +1,6 @@
 // https://devblogs.microsoft.com/semantic-kernel/how-to-get-started-using-semantic-kernel-net/
 // https://github.com/arashjalalat/semantic-kernel-dotnet-minimal-api
+// https://devblogs.microsoft.com/semantic-kernel/introducing-agents-in-semantic-kernel/
 using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
@@ -72,8 +73,6 @@ builder.Services.AddKeyedTransient<Kernel>("HomeAutomationKernel", (sp, key) =>
     pluginCollection.AddFromObject(sp.GetRequiredService<MyAlarmPlugin>());
     pluginCollection.AddFromObject(sp.GetRequiredKeyedService<MyLightPlugin>("OfficeLight"), "OfficeLight");
     pluginCollection.AddFromObject(sp.GetRequiredKeyedService<MyLightPlugin>("PorchLight"), "PorchLight");
-    // +++++++++++++++++++++++
-    pluginCollection.AddFromObject(sp.GetRequiredService<WeatherPlugin>());
 
     // When created by the dependency injection container, Semantic Kernel logging is included by default
     return new Kernel(sp, pluginCollection);

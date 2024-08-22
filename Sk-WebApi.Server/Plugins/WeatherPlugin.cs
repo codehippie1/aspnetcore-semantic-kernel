@@ -17,7 +17,7 @@ public class WeatherPlugin()
     [KernelFunction, Description("Returns average temperature")]
     public double Average()
     {
-        IEnumerable<WeatherForecast> weatherArray = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        IEnumerable<WeatherForecast> weatherArray = Enumerable.Range(1, Random.Shared.Next(5, 10)).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
             TemperatureC = Random.Shared.Next(-20, 55),
@@ -32,7 +32,7 @@ public class WeatherPlugin()
     [KernelFunction, Description("Returns sum of temperature")]
     public double Sum()
     {
-        IEnumerable<WeatherForecast> weatherArray = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        IEnumerable<WeatherForecast> weatherArray = Enumerable.Range(1, Random.Shared.Next(5, 10)).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
             TemperatureC = Random.Shared.Next(-20, 55),
@@ -42,5 +42,19 @@ public class WeatherPlugin()
 
         var sumTemp = weatherArray.Select(w => w).Sum(x => x.TemperatureC);
         return sumTemp;
+    }
+
+    [KernelFunction, Description("Returns number of cities we have a temperature measurement")]
+    public double Count()
+    {
+        IEnumerable<WeatherForecast> weatherArray = Enumerable.Range(1, Random.Shared.Next(5, 10)).Select(index => new WeatherForecast
+        {
+            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+        })
+        .ToArray();
+
+        return weatherArray.Count();
     }
 }

@@ -5,3 +5,5 @@
 /.vs
 /Sk-WebApi.Server/obj
 /Sk-WebApi.Server/Sk-WebApi.Server.csproj.user
+/sk-webapi.client/obj/Debug
+/Sk-WebApi.Server/bin/Debug/net8.0
